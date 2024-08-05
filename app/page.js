@@ -9,7 +9,8 @@ export default function Home() {
   const [inventory, setInventory] = useState([])
   const [open, setOpen] = useState(false)
   const [itemName, setItemName] = useState('')
-
+  const [searchQuery, setSearchQuery] = useState('');
+  const [items, setItems] = useState([]);
 
   const updateInventory = async () => {
     const snapshot = query(collection(firestore, 'inventory'))
@@ -119,7 +120,7 @@ export default function Home() {
         value = {searchQuery}
         onChange={(e) => setSearchQuery(e.target.view)}
       />
-  
+      
       <Button variant="contained" onClick={() => {
         handleOpen()
       }}
